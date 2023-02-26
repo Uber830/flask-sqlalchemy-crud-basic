@@ -1,0 +1,41 @@
+{% extends 'layaut.html' %}
+
+{% block body %}
+
+<body>
+
+    <div class="row">
+        <!-- created contact -->
+        <div class="col-md-5">
+            {% include('partials/_messages.html') %}
+
+            {% include('partials/_contactForm.html') %}
+        </div>
+
+        <!-- contact resgister all -->
+        <div class="col-md-7">
+
+            <!-- loop! what tour the list contact -->
+            {% for contact in contacts %}
+            <div class="card mb-1 text-white bg-dark">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <h5>{{contact.fullname}}</h5>
+                        <div>
+                            <a href="{{ url_for('contact.update', id=contact.id) }}"
+                                class="btn btn-primary btn-sm border-0">Update</a>
+                            <a href="{{ url_for('contact.delete', id=contact.id) }}"
+                                class="btn btn-danger btn-sm border-0">Delete</a>
+                        </div>
+                    </div>
+                    <p>{{contact.email}}</p>
+                    <p>{{contact.phone}}</p>
+                </div>
+            </div>
+
+            {% endfor %}
+        </div>
+    </div>
+
+</body>
+{% endblock %}

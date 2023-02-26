@@ -1,0 +1,34 @@
+{% extends 'layaut.html' %}
+
+{% block body %}
+<!-- form for updated of contacts -->
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <form action="/update/{{ contact.id }}" method="POST" class="card bg-dark text-white">
+            <!-- el valor por defaul es la data previamente pasada -->
+
+            <div class="card-body p-4">
+                <div class="mb-3">
+                    <label for="fullname">Update your fullname:</label>
+                    <input type="text" name="fullname" placeholder="Write your fullname" value="{{ contact.fullname }}"
+                        class="form-control rounded-0 border border-white bg-dark text-white" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="email">Update your email:</label>
+                    <input type="text" name="email" placeholder="Write your email" value="{{ contact.email }}"
+                        class="form-control rounded-0 border border-white bg-dark text-white" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="phone">Update your phone</label>
+                    <input type="text" name="phone" placeholder="Write your phone" value="{{ contact.phone }}"
+                        class="form-control rounded-0 boder border-white bg-dark text-white" />
+                </div>
+
+                <button class="btn btn-primary btn-lg">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
